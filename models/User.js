@@ -18,3 +18,10 @@ const userSchema = new mongoose.Schema({
     // friends: [friendsSchema],
 });
 
+const User = mongoose.model('user', userSchema);
+
+User.create({username: 'Cody', email: 'cody_codster@live.com'}, (err, result) => {
+    return result ? console.log('User created!') : console.log('Oops! Something went wrong.')
+});
+
+module.exports = User;
