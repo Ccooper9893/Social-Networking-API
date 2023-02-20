@@ -1,0 +1,25 @@
+{
+  "name": "social-networking-api",
+  "version": "1.0.0",
+  "description": "A RESTful API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. Utilizes Express.js for routing, a MongoDB database, and the Mongoose ODM.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ccooper9893/Social-Networking-API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ccooper9893/Social-Networking-API/issues"
+  },
+  "homepage": "https://github.com/Ccooper9893/Social-Networking-API#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.9.2"
+  }
+}
