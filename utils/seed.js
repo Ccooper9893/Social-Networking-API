@@ -20,7 +20,7 @@ const users = [
     },
     {
         username: 'James',
-        email: 'james@email.com'
+        email: 'james@email.com',
     },
 ];
 
@@ -30,7 +30,7 @@ const seedUsers = async () => {
 };
 
 seedUsers().then(() => {
-    console.log('Users seeded!')
+    console.log('Users seeded!');
     mongoose.connection.close();
 });
 

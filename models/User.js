@@ -22,13 +22,20 @@ const userSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     }
+    },
+    {
+        toJSON: { 
+            virtuals: true, //Include virtuals when converting document to JSON
+        },
+        
+        id: false,
+    },
+);
+
+userSchema.virtual('friendCount').get(function() {
+    return this.friends.length;
 });
 
 const User = model('user', userSchema);
 
 module.exports = User;
-
-//Testing
-// User.create({username: 'Cody', email: 'cody_codster@live.com'}, (err, result) => {
-//     return result ? console.log('User created!') : console.log('Oops! Something went wrong.')
-// });
