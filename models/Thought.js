@@ -23,11 +23,6 @@ const reactionSchema = new mongoose.Schema({
     }
 });
 
-//Getter for returning a formatted date
-reactionSchema.virtual('formattedCreatedAt').get(function() {
-    this.createdAt.toLocaleString('en-US', { timeZone: 'UTC' });
-});
-
 const thoughtSchema = new mongoose.Schema({
     thoughtText: {
         type: String,
