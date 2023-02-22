@@ -24,13 +24,30 @@ const users = [
     },
 ];
 
-const seedUsers = async () => {
+const thoughts = [
+    {
+        thoughtText: 'Great job, look forward to more!',
+        username: 'James',
+    },
+    {
+        thoughtText: 'Thumbs up emoji!',
+        username: 'Sam',
+    },
+    {
+        thoughtText: 'Agree to disagree.',
+        username: 'John',
+    },
+];
+
+const seedDatabase = async () => {
     await User.deleteMany({});
-    await User.insertMany(users);
+    await User.collection.insertMany(users);
+    await Thought.deleteMany({});
+    await Thought.collection.insertMany(thoughts);
 };
 
-seedUsers().then(() => {
-    console.log('Users seeded!');
+seedDatabase().then(() => {
+    console.log('Database seeded!');
     mongoose.connection.close();
 });
 
