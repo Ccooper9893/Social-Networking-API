@@ -30,6 +30,7 @@ const seedUsers = async () => {
 };
 
 seedUsers().then(() => {
+    console.log('Users seeded!')
     mongoose.connection.close();
 });
 

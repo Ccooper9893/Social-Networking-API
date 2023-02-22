@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
 const { isEmail } = require('validator');
 
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
     username: {
         type: String,
         required: true,
@@ -14,11 +14,17 @@ const userSchema = new mongoose.Schema({
         unique: true,
         validate: [ isEmail, 'invalid email' ]
     },
-    // thoughts: [thoughtsSchema],
-    // friends: [friendsSchema],
+    thoughts: { //References a Thought document with a specific Id
+        type: Schema.Types.ObjectId,
+        ref: 'Thought',
+    },
+    friends: { //References a Thought document with a specific Id
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
 });
 
-const User = mongoose.model('user', userSchema);
+const User = model('user', userSchema);
 
 module.exports = User;
 
