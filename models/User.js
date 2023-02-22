@@ -28,7 +28,7 @@ const userSchema = new Schema({
             virtuals: true, //Include virtuals when converting document to JSON
         },
         
-        id: false,
+        id: false, //Don't include the ids
     },
 );
 

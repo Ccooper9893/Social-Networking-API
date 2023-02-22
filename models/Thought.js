@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-const reactionSchema = new mongoose.Schema({
+const reactionSchema = new Schema({
     reactionId: {
-        type: mongoose.Schema.Types.ObjectId, //Defines the type of field
-        default: mongoose.Types.ObjectId(), //Generates a new id if none provided
+        type: Schema.Types.ObjectId, //Defines the type of field
+        default: Types.ObjectId, //Generates a new id if none provided
     },
     reactionBody: {
         type: String,
@@ -23,7 +23,7 @@ const reactionSchema = new mongoose.Schema({
     }
 });
 
-const thoughtSchema = new mongoose.Schema({
+const thoughtSchema = new Schema({
     thoughtText: {
         type: String,
         required: true,
@@ -39,9 +39,20 @@ const thoughtSchema = new mongoose.Schema({
         required: true,
     },
     reactions: [reactionSchema]
+    },
+    {
+        toJSON: {
+            virtuals: true,
+        },
+        id: false,
+    }    
+);
+
+thoughtSchema.virtual('reactionCount').get(function() {
+    return this.reactions.length;
 });
 
-const Thought = mongoose.model('thought', thoughtSchema);
+const Thought = model('thought', thoughtSchema);
 
 module.exports = Thought;
 
