@@ -29,7 +29,6 @@ const userSchema = new Schema({
         },
         
         id: false, //Don't include the ids
-        strictQuery: false,
     },
 );
 

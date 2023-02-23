@@ -4,12 +4,14 @@ require('dotenv').config();
 
 //tell mongoose to use es6 implementation of promises
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.DB_URL); 
+mongoose.connect(process.env.DB_URL); //Connects to database
+
 mongoose.connection
     .once('open', () => console.log('Connected!'))
     .on('error', (error) => {
         console.warn('Error : ',error);
     });
+
 //Called hooks which runs before something.
 beforeEach((done) => {
     mongoose.connection.collections.users.drop(() => {
