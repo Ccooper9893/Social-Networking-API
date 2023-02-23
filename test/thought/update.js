@@ -31,7 +31,7 @@ describe('Updating the details of Thoughts', () => {
             .then((updatedThought) => { //Saves the reaction document in Thoughts reactions array. Does not create a collection.
                 assert(updatedThought.reactions.length >= 1);
 
-                 Thought.findOneAndUpdate({_id: updatedThought._id}, { $pull: {reactions: {reactionId: updatedThought.reactions[0]._id}}})
+                 Thought.findOneAndUpdate({_id: updatedThought._id}, { $pull: {reactions: {reactionId: updatedThought.reactions[0]._id}}}, {runValidators: true, new: true})
                     .then((updatedThought) => {
                         assert(!updatedThought.reactions.length); //Checking to see if reactions array is empty
                     })

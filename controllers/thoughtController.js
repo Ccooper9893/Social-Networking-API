@@ -14,11 +14,11 @@ module.exports = {
     //Get thought by Id
     async getThoughtById(req, res) {
         try {
-        let thought = await Thought.findById(req.params.id);
+        let thought = await Thought.findById(req.params.thoughtId);
         res.status(200).json(thought);
         }
         catch(err) {
-            res.status(400).json({message: `No thought documents were found with id: ${req.params.id}`});
+            res.status(400).json({message: `No thought documents were found with id: ${req.params.thoughtId}`});
         };
     },
 
@@ -36,10 +36,10 @@ module.exports = {
     // Update thought text using id
     async updateThoughtById(req, res) {
         try {
-            let updatedThought = await Thought.findOneAndUpdate({_id: req.params.id}, {thoughtText: req.body.thoughtText}, {runValidators: true, new: true});
+            let updatedThought = await Thought.findOneAndUpdate({_id: req.params.thoughtId}, {thoughtText: req.body.thoughtText}, {runValidators: true, new: true});
             res.status(200).json(updatedThought);
         } catch (error) {
-            res.status(400).json({message: `No thought documents were found with id: ${req.params.id}`})
+            res.status(400).json({message: `No thought documents were found with id: ${req.params.thoughtId}`})
         }
     },
 
@@ -47,20 +47,19 @@ module.exports = {
     async createReaction(req, res) {
         try {
             let updatedThought = await Thought.findOneAndUpdate(
-                {_id: req.params.id},
+                {_id: req.params.thoughtId},
                 { $addToSet: {reactions: {reactionBody: req.body.reactionBody, username: req.body.username}}}, {new: true});
                 res.status(200).json(updatedThought);
                 //res.status(200).json({message: 'Reaction added!'});
         } catch (error) {
-            res.status(400).json({message: `No thought documents were found with id: ${req.params.id}`});
+            res.status(400).json({message: `No thought documents were found with id: ${req.params.thoughtId}`});
         }
     },
 
-    //Needs work
     async deleteReaction(req, res) {
         try {
-            let thought = await Thought.findOneAndUpdate({_id: req.params.id}, { $pull: {reactions: {reactionId: req.body.reactionId}}});
-            res.status(200).status(thought);
+            let thought = await Thought.findOneAndUpdate({_id: req.params.thoughtId}, { $pull: {reactions: {_id: req.params.reactionId}}}, {new: true});
+            res.status(200).json(thought);
         } catch (error) {
             res.status(400).json({message: `No thought and/or reaction documents were found with provided id!`});
         }
