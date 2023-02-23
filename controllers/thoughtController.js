@@ -14,7 +14,8 @@ module.exports = {
     //Get thought by Id
     async getThoughtById(req, res) {
         try {
-        let thought = await Thought.findById(req.params.thoughtId);
+        let thought = await Thought.findById(req.params.thoughtId)
+        .populate({path: 'reactions', select: '-__v'})
         res.status(200).json(thought);
         }
         catch(err) {

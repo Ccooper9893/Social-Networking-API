@@ -18,7 +18,7 @@ const reactionSchema = new Schema({
         type: Date,
         default: Date.now,
         get: function(date) { //Getter to format the createdAt date to YYYY/MM/DD HH:MM:SS
-            return date.toLocaleString('en-US', { timeZone: 'UTC' });
+            return require('moment')(timestamp).format('MM/DD/YYYY hh:mm:ss');
         }
     }
 });
