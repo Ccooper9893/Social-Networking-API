@@ -14,14 +14,14 @@ const userSchema = new Schema({
         unique: true,
         validate: [ isEmail, 'invalid email' ]
     },
-    thoughts: { //References a Thought document with a specific Id
+    thoughts: [{ //References a Thought document with a specific Id
         type: Schema.Types.ObjectId,
         ref: 'Thought',
-    },
-    friends: { //References a Thought document with a specific Id
+    }],
+    friends: [{ //References a Thought document with a specific Id
         type: Schema.Types.ObjectId,
         ref: 'User'
-    }
+    }],
     },
     {
         toJSON: { 
@@ -29,6 +29,7 @@ const userSchema = new Schema({
         },
         
         id: false, //Don't include the ids
+        strictQuery: false,
     },
 );
 

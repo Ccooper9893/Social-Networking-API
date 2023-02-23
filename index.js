@@ -11,6 +11,7 @@ app.use(express.json()); //Parses data from request body payload
 app.use(routes);
 
 db.once('open', () => {
+  console.log('Connected to database!')
 app.listen(PORT, () => {
     console.log(`API server running on port ${PORT}!`);
   });
