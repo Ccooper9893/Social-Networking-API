@@ -39,7 +39,7 @@ describe('Reading the details of Users', () => {
                 done(err);
             };
             let testId = docs._id.toString();
-            assert(testId === id);
+            assert.equal(testId, id);
             done();
         })
     });
@@ -49,8 +49,13 @@ describe('Reading the details of Users', () => {
             if(err) {
                 done(err);
             };
-            assert(docs.username === 'Cody');
+            assert.equal(docs.username, 'Cody');
             done();
         });    
+    });
+
+    it('Should return a users friend count', (done) => {
+        assert.equal(user2.friends.length, user2.friendCount);
+        done();
     });
 });

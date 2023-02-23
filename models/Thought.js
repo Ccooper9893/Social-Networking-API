@@ -33,6 +33,10 @@ const thoughtSchema = new Schema({
     createdAt: {
         type: Date,
         default: Date.now, //If now() it will have the creation date of schema, not documents.
+        get: function (timestamp) {
+            // format timestamp using Moment.js library
+            return require('moment')(timestamp).format('MM/DD/YYYY hh:mm:ss');
+          },
     },
     username: {
         type: String,

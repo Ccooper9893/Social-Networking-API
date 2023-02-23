@@ -26,12 +26,18 @@ describe('Updating the details of Thoughts', () => {
             .catch((err) => done(err))
     })
 
-    it('Should add a reaction to thoughts', (done) => {//$addToSet: Adds elements to an array only if they do not already exist in the set.
+    it('Should add/delete a thought reaction', (done) => {//$addToSet: Adds elements to an array only if they do not already exist in the set.
         Thought.findOneAndUpdate({_id: thought._id}, { $addToSet: {reactions: {reactionBody: 'Cool!', username: 'Stinkle'}}}, {new: true})
             .then((updatedThought) => { //Saves the reaction document in Thoughts reactions array. Does not create a collection.
                 assert(updatedThought.reactions.length >= 1);
+
+                 Thought.findOneAndUpdate({_id: updatedThought._id}, { $pull: {reactions: {reactionId: updatedThought.reactions[0]._id}}})
+                    .then((updatedThought) => {
+                        assert(!updatedThought.reactions.length); //Checking to see if reactions array is empty
+                    })
+
                 done();
             })
             .catch((err) => done(err))
     });
-})
+});

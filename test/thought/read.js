@@ -38,4 +38,9 @@ describe('Reading details of Thoughts', () => {
             done();
         })
     })
+
+    it('Should return a formatted createdAt date', (done) => {
+        assert(require('moment')(thought.createdAt, 'MM/DD/YYYY hh:mm:ss', true).isValid()); //Uses moment.js to check if createdAt returns a valid date
+        done();
+    })
 });
