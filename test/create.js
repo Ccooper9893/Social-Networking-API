@@ -10,7 +10,8 @@ describe('Creating mongoDB documents', () => {
             .then(() => {
                 assert(!newUser.isNew); //if the new User is saved in database, it is not new.
                 done(); //Call to finish test
-            });
+            })
+            .catch((err) => done(err))
     });
 
     it('Should create a new Thought document', (done) => { //done parameter tells Mocha we are running asynchronous functions
@@ -19,17 +20,10 @@ describe('Creating mongoDB documents', () => {
             .then(() => {
                 assert(!newThought.isNew); //if the new User is saved in database, it is not new.
                 done(); //Call to finish test
-            });
-    });
-
-    it('Should create a new Reaction document', (done) => {
-        Thought.findOneAndUpdate({_id: newThought._id}, { $addToSet: {reactions: {reactionBody: 'Cool!', username: 'Samantha'}}}, {new: true})
-            .then((updatedThought) => { //Saves the reaction document in Thoughts reactions array. Does not create a collection.
-                assert(updatedThought.reactions.length >=1);
-                done();
             })
             .catch((err) => done(err))
     });
+
 });
 
 

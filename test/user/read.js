@@ -24,6 +24,9 @@ beforeEach(function(done) {
 describe('Reading the details of Users', () => {
     it('Should find all users in the collection', (done) => {
         User.find({}, function(err, docs) {
+            if(err) {
+                done(err);
+            };
             assert(docs.length >= 1);
             done();
         });
@@ -32,6 +35,9 @@ describe('Reading the details of Users', () => {
     it('Should find a user by Object Id', (done) => {
         let id = user1._id.toString();
         User.findById(id, function(err, docs) {
+            if(err) {
+                done(err);
+            };
             let testId = docs._id.toString();
             assert(testId === id);
             done();
@@ -40,6 +46,9 @@ describe('Reading the details of Users', () => {
 
     it('Should find a user by name', (done) => {
         User.findOne({ username: 'Cody'}, function(err, docs) {
+            if(err) {
+                done(err);
+            };
             assert(docs.username === 'Cody');
             done();
         });    

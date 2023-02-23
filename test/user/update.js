@@ -24,6 +24,15 @@ beforeEach(function(done) {
 
 describe('Updating the details of Users', () => {
 
+    it('Should update the username of a user', (done) => {
+        User.findOneAndUpdate({_id: user2._id}, {username: 'NewUsername'}, {runValidators: true, new: true})
+            .then((updatedUser) => {
+                assert(updatedUser.username === 'NewUsername');
+                done();
+            })
+            .catch((err) => done(err))
+    });
+
     it('Should add a new friend to a user friends list', (done) => {
         User.findOneAndUpdate({username: 'David'}, { $addToSet: {friends: user2._id}}, {runValidators: true, new: true})
             .then((updatedUser) => {
