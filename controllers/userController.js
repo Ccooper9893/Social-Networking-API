@@ -14,7 +14,9 @@ module.exports = {
     //Get a single user by id
     async getUserById(req, res) {
         try {
-            let user = await User.findOne({ _id: req.params.userId });
+            let user = await User.findOne({ _id: req.params.userId })
+            .populate({ path: 'friends', select: '-__v' })
+            .populate({ path: 'thoughts', select: '-__v' })
             res.status(200).json(user);
         } catch (error) {
             res.status(400).json({message: `No user found with id: ${req.params.userId}`})

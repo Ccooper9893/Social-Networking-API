@@ -16,11 +16,11 @@ const userSchema = new Schema({
     },
     thoughts: [{ //References a Thought document with a specific Id
         type: Schema.Types.ObjectId,
-        ref: 'Thought',
+        ref: 'thought',
     }],
     friends: [{ //References a Thought document with a specific Id
         type: Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'user'
     }],
     },
     {
