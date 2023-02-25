@@ -1,0 +1,393 @@
+{
+	"info": {
+		"_postman_id": "20f42ee3-5310-41fd-9e7a-d0143d2183e6",
+		"name": "Challenge: Social-Network-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24449836"
+	},
+	"item": [
+		{
+			"name": "USERS",
+			"item": [
+				{
+					"name": "GET All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET User by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/users/:userId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"users",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "63f77e4510b3ab4e870162ee"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Tom\",\r\n    \"email\": \"tom@email.com\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/users/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User (username)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"TommyBoy\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/users/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "63f77e4510b3ab4e870162ee"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/users/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "63f77aee729cf9181d729e98"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Friend",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Friend",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/users/:userId/friends/:friendId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"users",
+								":userId",
+								"friends",
+								":friendId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "63f77aee729cf9181d729e99"
+								},
+								{
+									"key": "friendId",
+									"value": "63f77aee729cf9181d729e9a"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "THOUGHTS",
+			"item": [
+				{
+					"name": "GET All Thoughts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/thoughts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"thoughts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Thought by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/thoughts/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"thoughts",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "63f79dc7eca0df0e8364c112"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Thought",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"63f77e4510b3ab4e870162ee\",\r\n    \"thoughtText\": \"Super tired! Been working for 12 hours!\",\r\n    \"username\": \"TommyBoy\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/thoughts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"thoughts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Thought",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"thoughtText\": \"Terrible Blog!\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/thoughts/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"thoughts",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "63f77aee729cf9181d729e9e"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "REACTIONS",
+			"item": [
+				{
+					"name": "Create Reaction",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"reactionBody\": \"Clapping Hands\",\r\n    \"username\": \"Terry\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/thoughts/:thoughtId/reactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"thoughts",
+								":thoughtId",
+								"reactions"
+							],
+							"variable": [
+								{
+									"key": "thoughtId",
+									"value": "63f79dc7eca0df0e8364c112"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Reaction",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/thoughts/:thoughtId/reactions/:reactionId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"thoughts",
+								":thoughtId",
+								"reactions",
+								":reactionId"
+							],
+							"variable": [
+								{
+									"key": "thoughtId",
+									"value": "63f79dc7eca0df0e8364c112"
+								},
+								{
+									"key": "reactionId",
+									"value": "63f7a10de2e229e303312c1a"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -41,12 +41,14 @@ const thoughts = [
 
 const seedDatabase = async () => {
     await User.deleteMany({});
-    await User.collection.insertMany(users);
     await Thought.deleteMany({});
+    await User.collection.insertMany(users);
     await Thought.collection.insertMany(thoughts);
 };
 
 seedDatabase().then(() => {
+    console.table(users);
+    console.table(thoughts);
     console.log('Database seeded!');
     mongoose.connection.close();
 });
