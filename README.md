@@ -72,7 +72,7 @@ npm run test
 
 <img src="./screenshots/ResSample.png" alt="Example of API response">
 
-<img src="./screenshots/postmanlist.png" alt="Postman collection of HTTP requests">
+<img src="./screenshots/postmanlist.png" alt="Postman collection of HTTP requests"><img src="./screenshots/testingScreenshot.png" alt="Screenshot of passing tests.">
 
 
 
