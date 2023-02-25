@@ -38,19 +38,12 @@ All endpoints adhere to the principles of RESTful architecture and use standard 
 
 <u>Friend Management</u>
 - Add or remove friends from an exisiting user's friend's list.
-<!-- - Add Friend: Allows a user to add another user as a friend.
-- Remove Friend: Allows a user to delete a friend off their list. -->
 
 <u>Thought Management</u>
 - Create, update, and delete thoughts for individual users.
-<!-- - Create: Allows a user to create a new thought.
-- Update: Allows a user to update the text of an existing thought.
-- Delete: Allows a user to delete a thought. -->
 
 <u>Reaction Management</u>
 - Create and delete reactions to individual user thoughts.
-<!-- - Create: Allows a user to create a new reaction to a thought.
-- Delete: Allows a user to delete a reaction to a thought. -->
 
 ## *Usage*
 ___
@@ -71,14 +64,17 @@ npm start
 npm run test
 ```
 
-4. Use your API testing tool (such as Insomnia or Postman) to send requests to the API endpoints.
-If using Postman for testing this API, download this [Social Networking API Postman Collection](/Social-Network-API.postman_collection). 
-For instructions on how to import a Postman collection. Click [here](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/).
+- If using Postman for testing/seeding this API, download this [Social Networking API Postman Collection](/Social-Network-API.postman_collection). 
+
+- For instructions on how to import a Postman collection. Click [here](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/).
+
+- Walkthrough Video: https://drive.google.com/file/d/1TT5Mmkjx1wWpaDQuBmCQN6AJMamddpI5/view?usp=sharing
+
+<img src="./screenshots/ResSample.png" alt="Example of API response">
+
+<img src="./screenshots/postmanlist.png" alt="Postman collection of HTTP requests">
 
 
-<img src="./screenshots/postmanlist.png">
-
-Walkthrough Video: https://drive.google.com/file/d/1TT5Mmkjx1wWpaDQuBmCQN6AJMamddpI5/view?usp=sharing
 
 ## *Software*
 ___
