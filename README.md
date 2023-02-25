@@ -64,7 +64,7 @@ npm start
 npm run test
 ```
 
-- If using Postman for testing/seeding this API, download this [Social Networking API Postman Collection](/Social-Network-API.postman_collection). 
+- If using Postman for testing/seeding this API, download this [Social Networking API Postman Collection](./postman/Social-Network-API.postman_collection). 
 
 - For instructions on how to import a Postman collection. Click [here](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/).
 
