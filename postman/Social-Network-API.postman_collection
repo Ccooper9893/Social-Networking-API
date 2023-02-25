@@ -69,7 +69,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"new username\"\r\n}"
+							"raw": "{\r\n    \"username\": \"new username\",\r\n    \"email\": \"user@email.com\"\r\n}"
 						},
 						"url": {
 							"raw": "http://localhost:3001/api/users/",
@@ -100,10 +100,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"new username\",\r\n    \"email\": \"new email\"\r\n}"
+							"raw": "{\r\n    \"username\": \"\",\r\n    \"email\": \"\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/users/:id",
+							"raw": "http://localhost:3001/api/users/:userId",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -112,12 +112,12 @@
 							"path": [
 								"api",
 								"users",
-								":id"
+								":userId"
 							],
 							"variable": [
 								{
-									"key": "id",
-									"value": ""
+									"key": "userId",
+									"value": null
 								}
 							]
 						}

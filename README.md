@@ -71,10 +71,14 @@ npm start
 npm run test
 ```
 
-4. Use your API testing tool (such as Insomnia or Postman) to send requests to the API endpoints. To run on your local web server, be sure to begin each request with ```http://localhost:3001```.
-If using Postman for testing this API, download this [Social Networking API Postman Collection](/Social-Network-API.postman_collection). *For instructions on how to import a Postman collection. Click [here](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/).*
+4. Use your API testing tool (such as Insomnia or Postman) to send requests to the API endpoints.
+If using Postman for testing this API, download this [Social Networking API Postman Collection](/Social-Network-API.postman_collection). 
+For instructions on how to import a Postman collection. Click [here](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/).
+
 
 <img src="./screenshots/postmanlist.png">
+
+Walkthrough Video: https://drive.google.com/file/d/1TT5Mmkjx1wWpaDQuBmCQN6AJMamddpI5/view?usp=sharing
 
 ## *Software*
 ___
@@ -93,12 +97,15 @@ This project was built using the following software:
 ## *License*
 ___
 This application is covered under the MIT license.
+
 For more information about this license please visit https://opensource.org/licenses/MIT
 
 ## *Questions*
 ___
 For comments/conerns please contact me at https://github.com/Ccooper9893
+
 Github Repo: https://github.com/Ccooper9893/Social-Networking-API
+
 
 
 
