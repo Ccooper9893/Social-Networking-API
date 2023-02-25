@@ -68,7 +68,7 @@ npm run test
 
 - For instructions on how to import a Postman collection. Click [here](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/).
 
-- Walkthrough Video: https://drive.google.com/file/d/1TT5Mmkjx1wWpaDQuBmCQN6AJMamddpI5/view?usp=sharing
+- Walkthrough Video: https://drive.google.com/file/d/1OFSoS1Ub-A9dddOU7gWTHJmmhRFEtY20/view
 
 <img src="./screenshots/ResSample.png" alt="Example of API response">
 

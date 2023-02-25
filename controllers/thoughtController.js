@@ -38,7 +38,7 @@ module.exports = {
     async updateThoughtById(req, res) {
         try {
             let updatedThought = await Thought.findOneAndUpdate({_id: req.params.thoughtId}, {thoughtText: req.body.thoughtText}, {runValidators: true, new: true});
-            res.status(200).json(updatedThought);
+            res.status(200).json({message: 'Thought has been updated!'});
         } catch (error) {
             res.status(400).json({message: `No thought documents were found with id: ${req.params.thoughtId}`})
         }
@@ -48,7 +48,7 @@ module.exports = {
     async deleteThought(req, res) {
         try {
             let thought = await Thought.findByIdAndDelete(req.params.thoughtId);
-            res.status(200).json(thought);
+            res.status(200).json({message: 'Thought has been deleted!'});
         } catch (error) {
             res.status(400).json('No user with that ID found!')
         }
