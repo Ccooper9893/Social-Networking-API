@@ -49,7 +49,7 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "63f77e4510b3ab4e870162ee"
+									"value": ""
 								}
 							]
 						}
@@ -69,7 +69,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"Tom\",\r\n    \"email\": \"tom@email.com\"\r\n}"
+							"raw": "{\r\n    \"username\": \"new username\"\r\n}"
 						},
 						"url": {
 							"raw": "http://localhost:3001/api/users/",
@@ -88,7 +88,7 @@
 					"response": []
 				},
 				{
-					"name": "Update User (username)",
+					"name": "Update User",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -100,7 +100,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"TommyBoy\"\r\n}"
+							"raw": "{\r\n    \"username\": \"new username\",\r\n    \"email\": \"new email\"\r\n}"
 						},
 						"url": {
 							"raw": "http://localhost:3001/api/users/:id",
@@ -117,7 +117,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "63f77e4510b3ab4e870162ee"
+									"value": ""
 								}
 							]
 						}
@@ -136,7 +136,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3001/api/users/:id",
+							"raw": "http://localhost:3001/api/users/:userId",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -145,12 +145,12 @@
 							"path": [
 								"api",
 								"users",
-								":id"
+								":userId"
 							],
 							"variable": [
 								{
-									"key": "id",
-									"value": "63f77aee729cf9181d729e98"
+									"key": "userId",
+									"value": ""
 								}
 							]
 						}
@@ -160,8 +160,40 @@
 				{
 					"name": "Add Friend",
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/users/:userId/friends/:friendId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"users",
+								":userId",
+								"friends",
+								":friendId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": ""
+								},
+								{
+									"key": "friendId",
+									"value": ""
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -187,11 +219,11 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": "63f77aee729cf9181d729e99"
+									"value": ""
 								},
 								{
 									"key": "friendId",
-									"value": "63f77aee729cf9181d729e9a"
+									"value": ""
 								}
 							]
 						}
@@ -229,7 +261,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3001/api/thoughts/:id",
+							"raw": "http://localhost:3001/api/thoughts/:thoughtId",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -238,12 +270,12 @@
 							"path": [
 								"api",
 								"thoughts",
-								":id"
+								":thoughtId"
 							],
 							"variable": [
 								{
-									"key": "id",
-									"value": "63f79dc7eca0df0e8364c112"
+									"key": "thoughtId",
+									"value": ""
 								}
 							]
 						}
@@ -263,7 +295,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"userId\": \"63f77e4510b3ab4e870162ee\",\r\n    \"thoughtText\": \"Super tired! Been working for 12 hours!\",\r\n    \"username\": \"TommyBoy\"\r\n}"
+							"raw": "{\r\n    \"userId\": \"userId\",\r\n    \"thoughtText\": \"New thought text\",\r\n    \"username\": \"username\"\r\n}"
 						},
 						"url": {
 							"raw": "http://localhost:3001/api/thoughts",
@@ -284,13 +316,19 @@
 					"name": "Update Thought",
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"thoughtText\": \"Terrible Blog!\"\r\n}"
+							"raw": "{\r\n    \"thoughtText\": \"Enter new thought text\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:3001/api/thoughts/:id",
+							"raw": "http://localhost:3001/api/thoughts/:thoughtId",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -299,12 +337,39 @@
 							"path": [
 								"api",
 								"thoughts",
-								":id"
+								":thoughtId"
 							],
 							"variable": [
 								{
-									"key": "id",
-									"value": "63f77aee729cf9181d729e9e"
+									"key": "thoughtId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Thought by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/thoughts/:thoughtId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"thoughts",
+								":thoughtId"
+							],
+							"variable": [
+								{
+									"key": "thoughtId",
+									"value": ""
 								}
 							]
 						}
@@ -329,7 +394,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"reactionBody\": \"Clapping Hands\",\r\n    \"username\": \"Terry\"\r\n}"
+							"raw": "{\r\n    \"reactionBody\": \"Reaction text goes here\",\r\n    \"username\": \"username\"\r\n}"
 						},
 						"url": {
 							"raw": "http://localhost:3001/api/thoughts/:thoughtId/reactions",
@@ -347,7 +412,7 @@
 							"variable": [
 								{
 									"key": "thoughtId",
-									"value": "63f79dc7eca0df0e8364c112"
+									"value": ""
 								}
 							]
 						}
@@ -376,11 +441,11 @@
 							"variable": [
 								{
 									"key": "thoughtId",
-									"value": "63f79dc7eca0df0e8364c112"
+									"value": ""
 								},
 								{
 									"key": "reactionId",
-									"value": "63f7a10de2e229e303312c1a"
+									"value": ""
 								}
 							]
 						}

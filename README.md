@@ -57,12 +57,21 @@ ___
 To use this RESTful API, you must have MongoDB and Node.js installed on your local machine. You will also need an API testing tool such as Insomnia or Postman. Be sure to follow the installation guidelines before proceeding. Once installation is complete, follow these steps to access the features.
 
 1. Create a .env file to store your local MongoDB database credentials. Make sure your URL looks like the following:
-    - ```DB_URL = 'mongodb://127.0.0.1:27017/socialnetworkDB'```
+```
+DB_URL = 'mongodb://127.0.0.1:27017/socialnetworkDB'
+```
 
 2. Start the server by running the following command:
-    - ```npm start```
+```
+npm start
+```
 
-3. Use your API testing tool (such as Insomnia or Postman) to send requests to the API endpoints. To run on your local web server, be sure to begin each request with ```http://localhost:3001```.
+3. For testing using Mocha, run the following command in your terminal.
+```
+npm run test
+```
+
+4. Use your API testing tool (such as Insomnia or Postman) to send requests to the API endpoints. To run on your local web server, be sure to begin each request with ```http://localhost:3001```.
 If using Postman for testing this API, download this [Social Networking API Postman Collection](/Social-Network-API.postman_collection). *For instructions on how to import a Postman collection. Click [here](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/).*
 
 <img src="./screenshots/postmanlist.png">

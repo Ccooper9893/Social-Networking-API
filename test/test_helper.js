@@ -4,7 +4,7 @@ require('dotenv').config();
 
 //tell mongoose to use es6 implementation of promises
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.DB_URL); //Connects to database
+mongoose.connect('mongodb://127.0.0.1:27017/socialnetworkDBTesting'); //Connects to local testing database
 
 mongoose.connection
     .once('open', () => console.log('Connected!'))

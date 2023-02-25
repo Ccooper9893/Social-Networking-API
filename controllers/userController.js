@@ -29,14 +29,14 @@ module.exports = {
             let user = await User.create(req.body);
             res.status(200).json(user);
         } catch (error) {
-            res.status(400).json({ message: 'Please provide a valid username'})
+            res.status(400).json({ message: 'Please provide a valid username and email!'})
         }
     },
 
     //Updates a user (username, email)
     async updateUser(req, res) {
         try {
-            let user = await User.findOneAndUpdate({_id: req.params.userId}, {username: req.body.username}, {runValidators: true, new: true});
+            let user = await User.findOneAndUpdate({_id: req.params.userId}, req.body, {runValidators: true, new: true});
             res.status(200).json(user);
         } catch (error) {
             res.status(400).json({message: `No user found with id: ${req.params.userId}`})

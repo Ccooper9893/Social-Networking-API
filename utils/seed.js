@@ -1,3 +1,6 @@
+//I recommend seeding the database using Postman or Insomnia. This way the thoughts can be directly linked to the users by ID.
+//Seeding here will create thoughts but, will not be associated with any user document.
+
 const mongoose = require('mongoose');
 const { User, Thought } = require('../models');
 require('dotenv').config();

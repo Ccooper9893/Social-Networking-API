@@ -44,16 +44,28 @@ module.exports = {
         }
     },
 
+    //Delete a thought by ID
+    async deleteThought(req, res) {
+        try {
+            let thought = await Thought.findByIdAndDelete(req.params.thoughtId);
+            res.status(200).json(thought);
+        } catch (error) {
+            res.status(400).json('No user with that ID found!')
+        }
+    },
+
     //Added a reaction to a thought document
     async createReaction(req, res) {
+        if(!req.body.username || !req.body.reactionBody) {
+            return res.status(400).json({message: 'Please provide both a reaction body and username!'});
+        }
         try {
             let updatedThought = await Thought.findOneAndUpdate(
                 {_id: req.params.thoughtId},
-                { $addToSet: {reactions: {reactionBody: req.body.reactionBody, username: req.body.username}}}, {new: true});
+                { $addToSet: {reactions: {reactionBody: req.body.reactionBody, username: req.body.username}}});
                 res.status(200).json(updatedThought);
-                //res.status(200).json({message: 'Reaction added!'});
         } catch (error) {
-            res.status(400).json({message: `No thought documents were found with id: ${req.params.thoughtId}`});
+            res.status(400).json({message: `Please provide the required data to create the reaction!`});
         }
     },
 
