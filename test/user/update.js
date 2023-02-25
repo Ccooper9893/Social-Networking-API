@@ -1,12 +1,12 @@
 const User = require('../../models/User');
 const assert = require('assert');
-  
+
 let user1;
 let user2;
+
 // this will run before running the tests
 beforeEach(function(done) {
     // Creating a new Instance of User Model
-    
     user1 = new User({  username: 'David', email: 'david@email.com' });
     user2 = new User({ username: 'Sarah', email: 'sarah@email.com', friends: [user1._id]});
     user1.save()
