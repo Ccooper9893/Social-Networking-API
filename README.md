@@ -98,7 +98,7 @@ For more information about this license please visit https://opensource.org/lice
 
 ## *Questions*
 ___
-For comments/conerns please contact me at https://github.com/Ccooper9893
+For comments/concerns please contact me at https://github.com/Ccooper9893
 
 Github Repo: https://github.com/Ccooper9893/Social-Networking-API
 
