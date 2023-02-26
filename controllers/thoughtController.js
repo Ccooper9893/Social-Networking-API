@@ -48,9 +48,10 @@ module.exports = {
     async deleteThought(req, res) {
         try {
             let thought = await Thought.findByIdAndDelete(req.params.thoughtId);
+            let user = await User.findOneAndUpdate({thoughts: req.params.thoughtId}, {$pull: {thoughts: req.params.thoughtId}}, {new: true});
             res.status(200).json({message: 'Thought has been deleted!'});
         } catch (error) {
-            res.status(400).json('No user with that ID found!')
+            res.status(400).json('No user and/or thought found with the provided id!')
         }
     },
 
