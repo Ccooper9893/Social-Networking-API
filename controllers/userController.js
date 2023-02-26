@@ -47,7 +47,7 @@ module.exports = {
     async deleteUser(req, res) {
         try {
             let user = await User.findByIdAndDelete(req.params.userId);
-            let thoughts = await Thought.deleteMany({ _id: {$in: user.thoughts}});
+            await Thought.deleteMany({ _id: {$in: user.thoughts}});
             res.status(200).json('User and thoughts deleted!');
         } catch (error) {
             res.status(400).json({message: `No user found with id: ${req.params.userId}`});

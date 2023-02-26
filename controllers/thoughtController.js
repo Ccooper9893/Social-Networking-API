@@ -26,18 +26,20 @@ module.exports = {
     //Create thought and assign it to user
     async createThought(req, res) {
         try {
+            let user = await User.findById(req.body.userId);
+            if(!user) {return res.status(400).json({message: 'No user exists with the provided id!'})};
             let thought = await Thought.create(req.body);
-            let updatedUser = await User.findOneAndUpdate({_id: req.body.userId}, { $addToSet: {thoughts: thought._id}});
+            await User.findOneAndUpdate({_id: req.body.userId}, { $addToSet: {thoughts: thought._id}});
             res.status(200).json(thought);  
         } catch (err) {
-            res.status(400).json({message: `Could not find user with id: ${req.body.userId}!`});
+            res.status(500).json(err);
         };
     },
 
     // Update thought text using id
     async updateThoughtById(req, res) {
         try {
-            let updatedThought = await Thought.findOneAndUpdate({_id: req.params.thoughtId}, {thoughtText: req.body.thoughtText}, {runValidators: true, new: true});
+            await Thought.findOneAndUpdate({_id: req.params.thoughtId}, {thoughtText: req.body.thoughtText}, {runValidators: true, new: true});
             res.status(200).json({message: 'Thought has been updated!'});
         } catch (error) {
             res.status(400).json({message: `No thought documents were found with id: ${req.params.thoughtId}`})
@@ -47,8 +49,8 @@ module.exports = {
     //Delete a thought by ID
     async deleteThought(req, res) {
         try {
-            let thought = await Thought.findByIdAndDelete(req.params.thoughtId);
-            let user = await User.findOneAndUpdate({thoughts: req.params.thoughtId}, {$pull: {thoughts: req.params.thoughtId}}, {new: true});
+            await Thought.findByIdAndDelete(req.params.thoughtId);
+            await User.findOneAndUpdate({thoughts: req.params.thoughtId}, {$pull: {thoughts: req.params.thoughtId}}, {new: true});
             res.status(200).json({message: 'Thought has been deleted!'});
         } catch (error) {
             res.status(400).json('No user and/or thought found with the provided id!')
